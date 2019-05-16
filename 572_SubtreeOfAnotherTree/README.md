@@ -5,6 +5,9 @@
 1. 先在s中找到和t的root值一样的结点,将所有结点保存到stack容器中(因为s中可能有重复的和t的root一样的结点)<br>
 2. 从栈顶开始弹(从树下面)，判断当前树和t是否是一样的，只有有一个符和返回true,否则返回false<br>
 
+
+
+解法很好，值得借鉴<br>
 [leetcode上的解法](https://leetcode.com/articles/subtree-of-another-tree/#)
 
 

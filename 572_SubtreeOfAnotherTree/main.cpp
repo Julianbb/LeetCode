@@ -23,20 +23,28 @@ void FindRoot(TreeNode* s, int value, stack<TreeNode*>& result)//在s中遍历�
 
 bool CompareTwoTree(TreeNode* tree1, TreeNode* tree2) //比较两个树是否相同
 {
+    // if(tree1 == nullptr && tree2 == nullptr) return true;
+    // if(tree1 == nullptr && tree2 != nullptr) return false;
+    // if(tree1 != nullptr && tree2 == nullptr)return false;
+
+    // if(tree1->val == tree2->val)
+    // {
+    //     return CompareTwoTree(tree1->left, tree2->left)&&CompareTwoTree(tree1->right, tree2->right);
+    // }
+    // else
+    // {
+    //     return false;
+    // }
+    
+    // leetcode 优化写法
     if(tree1 == nullptr && tree2 == nullptr) return true;
-    if(tree1 == nullptr && tree2 != nullptr) return false;
-    if(tree1 != nullptr && tree2 == nullptr)return false;
-    
-    if(tree1->val == tree2->val)
-    {
-	return CompareTwoTree(tree1->left, tree2->left)&&CompareTwoTree(tree1->right, tree2->right);    
-    }
-    else
-    {
-	return false;
-    }
-    
+    if(tree1 == nullptr || tree2 == nullptr) return false;
+    return (tree1->val == tree2->val) && CompareTwoTree(tree1->left, tree2->left) && CompareTwoTree(tree1->right, tree2->right);
+
+
 }   
+
+
 
 bool isSubtree(TreeNode* s, TreeNode* t) 
 {
@@ -70,32 +78,32 @@ bool isSubtree(TreeNode* s, TreeNode* t)
 
 
 
-// int main(void)
-// {
+int main(void)
+{
 
-//     TreeNode node1(1);
-//     TreeNode node2(1);
-//     TreeNode node3(1);
-//     TreeNode node4(1);
-//     TreeNode node5(2);
+    TreeNode node1(1);
+    TreeNode node2(1);
+    TreeNode node3(1);
+    TreeNode node4(1);
+    TreeNode node5(2);
 
-//     TreeNode node6(1);
-//     TreeNode node7(1);
-//     TreeNode node8(2);
+    TreeNode node6(1);
+    TreeNode node7(1);
+    TreeNode node8(2);
 
-//     node1.right= &node2;
-//     node2.right= &node3;
-//     node3.right= &node4;
-//     node4.right= &node5;
+    node1.right= &node2;
+    node2.right= &node3;
+    node3.right= &node4;
+    node4.right= &node5;
 
-//     node6.right = &node7;
-//     node7.right = &node8;
+    node6.right = &node7;
+    node7.right = &node8;
 
-//     bool result = isSubtree(&node1, &node6);
-//     cout <<result<< endl;
+    bool result = isSubtree(&node1, &node6);
+    cout <<result<< endl;
 
-//     return 0;
-// }
+    return 0;
+}
 
 
 
